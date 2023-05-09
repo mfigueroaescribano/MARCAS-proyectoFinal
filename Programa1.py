@@ -1,8 +1,3 @@
-# Devuelve los nombres de las fuentes disponibles en el repositorio
-
-import requests
-import json
-
 import requests
 
 url = "https://webfonts.googleapis.com/v1/webfonts"
