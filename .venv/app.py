@@ -1,8 +1,11 @@
 import requests
 import json
-from flask import Flask, render_template, abort, redirect, request
+from flask import *
 
 app = Flask(__name__)
+url = "https://webfonts.googleapis.com/v1/webfonts"
+key = {"key": "AIzaSyDfz0lHOk42n4-7hPBV_j7xj3SrBu9b5A8"}
+
 
 @app.route('/',methods=["GET","post"])
 def inicio():
@@ -10,7 +13,15 @@ def inicio():
 
 @app.route('/list',methods=["GET","post"])
 def list():
-    return render_template("list.html")
+    
+    response = requests.get(url, params=key)
+    
+    if response.status_code == 200:
+        font_data = response.json()
+        font_names = [font['family'] for font in font_data['items']]
+        return render_template("list.html", font_names=font_names)
+    else:
+        return "Error al hacer la solicitud: {}".format(response.status_code)
 
 @app.route('/detalles',methods=["GET","post"])
 def detalles():

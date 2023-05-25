@@ -1193,5 +1193,15 @@ ul.conta li a {
      line-height: 18px;
 }
 
-
+.lista-fuentes {
+     list-style: none;
+     padding: 0;
+   }
+   
+   .lista-fuentes li {
+     margin-bottom: 10px;
+     padding: 5px;
+     background-color: #f2f2f2;
+     border-radius: 5px;
+   }
 /** end blog **/
