@@ -14,6 +14,7 @@ Estudio y búsqueda de uno o varios servicios web (API Restful). Si se va a esco
 
 
 ## Entrega
+### Fase 1
 
 En redmine entrega los siguientes puntos:
 
@@ -22,4 +23,11 @@ En redmine entrega los siguientes puntos:
 - 3 programas python que muestren información de las consultas a la API (se pueden usar las mismas consultas que has utilizado en el punto anterior) utilizando la librería requests. 
 - Una descripción de lo que va a hacer tu aplicación web utilizando estos servicios web.
 
-Una vez que este corregida la parte 1, se abrirá la tarea de la 2ª parte.
+### Fase 2
+El alumno decide que es lo que va a hacer la aplicación web, decide cuantas páginas va a tener,…, pero las características mínimas de la aplicación web que debes hacer serán las siguientes:
+
+- La aplicación web debe tener una vista tipo lista, donde se vea una lista de recursos de la API.
+- Debe tener también una vista detalle, donde se vea información concreta de algún recurso de la API.
+- Debe tener al menos un formulario para filtrar la información que se muestra.
+- La aplicación web debe tener hoja de estilo.
+- La aplicación web debe estar desplegada en una plataforma como servicio (PaaS).
