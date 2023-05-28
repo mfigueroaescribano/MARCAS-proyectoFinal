@@ -3,21 +3,22 @@
 {%block tittle%}Buscador de fuentes{%endblock%}
 
 {%block contenido%}
-
 <body>
-    <h1>Buscador de fuentes</h1>
-    <form method="post" action="/detalles">
-        <input type="text" name="font_name" placeholder="Nombre de la fuente">
+    {% if nombre %}
+    <h1>Detalles de la Fuente</h1>
+    <p><strong>Nombre:</strong> {{ nombre }}</p>
+    <p><strong>Categoría:</strong> {{ categoria }}</p>
+    <p><strong>Versión:</strong> {{ version }}</p>
+    <p><strong>Última modificación:</strong> {{ modif }}</p>
+    {% elif error %}
+    <h1>Error</h1>
+    <p>{{ error }}</p>
+    {% else %}
+    <h1>Búsqueda de Fuentes</h1>
+    <form method="POST">
+        <input type="text" name="nombre" placeholder="Nombre de la fuente">
         <input type="submit" value="Buscar">
     </form>
-    <h1>Detalles de la Fuente</h1>
-    <h2>{{ font_name }}</h2>
-    {% if font_details %}
-        <p><strong>Categorías:</strong> {{ font_details.category }}</p>
-        <p><strong>Variants:</strong> {{ font_details.variants }}</p>
-        <p><strong>Subfamilias:</strong> {{ font_details.subsets }}</p>
-    {% else %}
-        <p>No se encontraron detalles para la fuente ingresada.</p>
     {% endif %}
 </body>
 {%endblock%}

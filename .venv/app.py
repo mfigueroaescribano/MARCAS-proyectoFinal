@@ -26,18 +26,27 @@ def list():
 
 @app.route('/detalles',methods=["GET","POST"])
 def search_fonts():
-    if request.method == 'POST':
-        search_query = request.form['font_name']
-        font_details = get_font_details(search_query)
-        return render_template('detalles.html', font_name=search_query, font_details=font_details)
-    return render_template('detalles.html')
+    if request.method == "POST":
+        fuente = request.form.get('nombre')
 
-def get_font_details(query):
-    response = requests.get(f'{url}?family={query}&key={key2}')
-    if response.status_code == 200:
-        data = response.json()
-        return data
-    return None
+        url = f'https://webfonts.googleapis.com/v1/webfonts?family={fuente}&key={key2}'
+
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            json = response.json()
+            nombre = json['items'][0]['family']
+            categoria = json['items'][0]['category']
+            version = json['items'][0]['version']
+            modif = json['items'][0]['lastModified']
+
+            return render_template("detalles.html", nombre=nombre, categoria=categoria, version=version, modif=modif)
+        else:
+            error = f'No se ha encontrado ninguna fuente)'
+            return render_template("detalles.html", error=error)
+    else:
+        return render_template("detalles.html")
+
 
 @app.route('/filtrar',methods=["GET","post"])
 def filtrar():
