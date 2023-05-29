@@ -7,34 +7,23 @@
 {%block contenido%}
 
 <link rel="stylesheet" href="/static/css/style.css">
-<h3>Listado de fuentes disponibles:</h3>
+<h2 style="text-align: center;">Listado de fuentes disponibles:</h2>
 
-
-<table>
+<table style="margin-left:auto; margin-right:auto; border-collapse: collapse;">
   <tr>
-    <th>Nombre de la fuente</th>
-    <th>Detalles</th>
+    <th style="border: 1px solid #ffffff; padding: 8px; text-align: center;">Nombre de la fuente</th>
+    <th style="border: 1px solid #ffffff; padding: 8px; text-align: center;">Detalles</th>
   </tr>
+  {% for font in font_names %}
   <tr>
-    <th>
-      {% for font in font_names %}
+    <td style="border-bottom: 1px solid #ffffff; padding: 8px; text-align: center;">
       <p>{{ font }}</p>
-      {% endfor %}
-    </th>
-    <th>
-      {% for font in font_names%}
-      <a href="/detalles"><p>Detalles</p></a>
-      {% endfor -%}
-    </th>
+    </td>
+    <td style="border-bottom: 1px solid #ffffff; padding: 8px; text-align: center;">
+      <a href="/detalles/{{font}}"><p>Detalles</p></a>
+    </td>
   </tr>
+  {% endfor %}
 </table>
 
-
-
 {%endblock%}
-
-<!-- <ul class="lista-fuentes">
-  {% for font in font_names %}
-    <li>{{ font }}</li>
-  {% endfor %}
-</ul> -->
