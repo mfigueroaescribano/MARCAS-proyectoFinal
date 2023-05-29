@@ -43,7 +43,7 @@ def search_fonts():
 
             return render_template("detalles.html", nombre=nombre, categoria=categoria, version=version, modif=modif, links=links)
         else:
-            error = f'No se ha encontrado ninguna fuente)'
+            error = f'No se ha encontrado ninguna fuente 😥'
             return render_template("detalles.html", error=error)
     else:
         return render_template("detalles.html")
