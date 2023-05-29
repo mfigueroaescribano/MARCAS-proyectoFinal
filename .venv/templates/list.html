@@ -8,9 +8,33 @@
 
 <link rel="stylesheet" href="/static/css/style.css">
 <h3>Listado de fuentes disponibles:</h3>
-<ul class="lista-fuentes">
+
+
+<table>
+  <tr>
+    <th>Nombre de la fuente</th>
+    <th>Detalles</th>
+  </tr>
+  <tr>
+    <th>
+      {% for font in font_names %}
+      <p>{{ font }}</p>
+      {% endfor %}
+    </th>
+    <th>
+      {% for font in font_names%}
+      <a href="/detalles"><p>Detalles</p></a>
+      {% endfor -%}
+    </th>
+  </tr>
+</table>
+
+
+
+{%endblock%}
+
+<!-- <ul class="lista-fuentes">
   {% for font in font_names %}
     <li>{{ font }}</li>
   {% endfor %}
-</ul>
-{%endblock%}
+</ul> -->

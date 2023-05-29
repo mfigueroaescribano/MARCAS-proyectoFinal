@@ -48,6 +48,24 @@ def search_fonts():
     else:
         return render_template("detalles.html")
 
+@app.route('/detalles/<fuente>', methods=["GET"])
+def detalles_fuente(fuente):
+    url = f'https://webfonts.googleapis.com/v1/webfonts?family={fuente}&key={key2}'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        json = response.json()
+        nombre = json['items'][0]['family']
+        categoria = json['items'][0]['category']
+        version = json['items'][0]['version']
+        modif = json['items'][0]['lastModified']
+        links = json['items'][0]['files']
+
+        return render_template("detalles.html", nombre=nombre, categoria=categoria, version=version, modif=modif, links=links)
+    else:
+        error = f'No se ha encontrado ninguna fuente 😥'
+        return render_template("detalles.html", error=error)
+
 @app.route('/error')
 def error():
     return abort(404)
