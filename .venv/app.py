@@ -39,18 +39,14 @@ def search_fonts():
             categoria = json['items'][0]['category']
             version = json['items'][0]['version']
             modif = json['items'][0]['lastModified']
+            links = json['items'][0]['files']
 
-            return render_template("detalles.html", nombre=nombre, categoria=categoria, version=version, modif=modif)
+            return render_template("detalles.html", nombre=nombre, categoria=categoria, version=version, modif=modif, links=links)
         else:
             error = f'No se ha encontrado ninguna fuente)'
             return render_template("detalles.html", error=error)
     else:
         return render_template("detalles.html")
-
-
-@app.route('/filtrar',methods=["GET","post"])
-def filtrar():
-    return render_template("filtrar.html")
 
 @app.route('/error')
 def error():

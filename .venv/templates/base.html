@@ -69,9 +69,6 @@
                            <li class="nav-item">
                               <a class="nav-link" href="/detalles">Detalles de una fuente</a>
                            </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="/filtrar">Filtrar</a>
-                           </li>
                         </ul>
                      </div>
                   </nav>
@@ -97,8 +94,8 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage text_align_center">
-                     <h2>INICIO</h2>
-                     <p>Bienvenido a la web para gestionar mediante API las fuentes de Google 
+                     <h2>{% block titulopagina %}{% endblock %}</h2>
+                     <p>Tu página favorita para gestionar las fuentes de Google mediante una API 
                      </p>
                   </div>
                </div>
@@ -121,6 +118,7 @@
          }
       </style>
       <footer>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Google_Fonts_logo.svg/2560px-Google_Fonts_logo.svg.png" alt="Logo de Google Fonts" width="200" height="200">
          <p>© 2023 API-GoogleFonts. LM 1 ASIR - Miguel Figueroa</p>
       </footer>
       <!-- end footer -->

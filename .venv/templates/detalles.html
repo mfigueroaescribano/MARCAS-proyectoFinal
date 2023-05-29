@@ -1,24 +1,35 @@
 {%extends "base.html" %}
 
 {%block tittle%}Buscador de fuentes{%endblock%}
+{%block titulopagina%}Detalles{%endblock%}
+
 
 {%block contenido%}
 <body>
     {% if nombre %}
-    <h1>Detalles de la Fuente</h1>
-    <p><strong>Nombre:</strong> {{ nombre }}</p>
-    <p><strong>Categoría:</strong> {{ categoria }}</p>
-    <p><strong>Versión:</strong> {{ version }}</p>
-    <p><strong>Última modificación:</strong> {{ modif }}</p>
+        <h1>Detalles de la Fuente</h1>
+        <p><strong>Nombre:</strong> {{ nombre }}</p>
+        <p><strong>Categoría:</strong> {{ categoria }}</p>
+        <p><strong>Versión:</strong> {{ version }}</p>
+        <p><strong>Última modificación:</strong> {{ modif }}</p>
+        <!-- <p><strong>Links de descarga:</strong> {{ links }}</p> -->
+        <a href="/detalles" class="button">Volver</a>
+
+
     {% elif error %}
     <h1>Error</h1>
     <p>{{ error }}</p>
     {% else %}
-    <h1>Búsqueda de Fuentes</h1>
-    <form method="POST">
-        <input type="text" name="nombre" placeholder="Nombre de la fuente">
-        <input type="submit" value="Buscar">
-    </form>
+    <div style="text-align: center;">
+        <h1>Búsqueda de Fuentes</h1>
+        <form method="POST">
+          <input type="text" name="nombre" placeholder="Nombre de la fuente">
+          <input type="submit" value="Buscar">
+        </form>
+        
+      </div>
+      
+
     {% endif %}
 </body>
 {%endblock%}
